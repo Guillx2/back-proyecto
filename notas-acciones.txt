@@ -1,0 +1,79 @@
+Basándose en el wireframe para móviles:
+
+******************************************************************************************************
+******************** ¡¡¡¡¡¡¡¡ OBSOLETO (PENDIENTE DE MODIFICAR) !!!!!!!!!! ***************************
+******************************************************************************************************
+
+Punto 1: 
+    - "QUIERO COMPRAR": 
+    Al hacer clic nos lleva a http://localhost:3000/categorías 
+
+    - "QUIERO VENDER":
+        NO logeado: http://localhost:3000/login
+        SI logeado: http://localhost:3000/subir
+
+    - "LOGO":
+    Al hacer clic en el logo nos lleva a http://localhost:3000/index
+
+    - "Barra de búsqueda":
+    Al buscar nos lleva a /search
+
+    - "Consolas y Videojuegos" / "Informática" / "Teléfonos" etc :
+    Al hacer clic en una de las categorías, nos lleva a:
+        --> "Consolas y Videojuegos": /categorias/consolas-y-videojuegos
+        --> "Informática": /categorias/informatica
+        --> "Teléfonos": /categorias/telefonos
+        --> "Tv y Vídeo": /categorias/tv-y-video
+        --> "Sonido": categorias/sonido
+
+    - "Filtrar": 
+    Al hacer clic en alguno de los filtros, nos lleva a http://localhost:3000/categorias/:id/filtrar
+
+    - Al clicar en un ANUNCIO nos lleva a http://localhost:3000/categorias/:id/item/:itemID
+
+    - "Enviar Mensaje": 
+        NO logeado: nos lleva a http://localhost:3000/login
+        SI logeado: nos lleva a http://localhost:3000/chat/:id
+
+MENÚ DE BOTONES INFERIOR:
+
+    - "Inicio":
+    Nos lleva a http://localhost:3000/index
+
+    - "Guardados": 
+        NO logeado: http://localhost:3000/login
+        SI logeado: http://localhost:3000/guardados
+
+    - "Subir":
+        NO logeado: http://localhost:3000/login
+        SI logeado: http://localhost:3000/subir
+
+    - "Mensajes": 
+        NO logeado: http://localhost:3000/login
+        SI logeado: http://localhost:3000/chat
+
+    - "Acceder" / "Mi Perfil":
+        NO logeado: http://localhost:3000/login
+        SI logeado: http://localhost:3000/perfil/:id
+
+        - "Mi Perfil":
+        Al estar logeado tenemos diferentes opciones:
+            - "Editar": http://localhost:3000/perfil/:id/editar
+            - "Mis anuncios": http://localhost:3000/perfil/:id/mis-anuncios
+            - "Vendidos": http://localhost:3000/perfil/:id/vendidos
+
+
+
+    Proceso: 
+
+    1. Usuario hace clic en "QUIERO COMPRAR":
+        http://localhost:3000/categorias
+    
+    2. Después hace clic en "Informática" (por ejemplo):
+        http://localhost:3000/categorias/informatica
+
+    3. Después clica en un anuncio: 
+        http://localhost:3000/categorias/informatica/item/:id
+
+    
+

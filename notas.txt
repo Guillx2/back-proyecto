@@ -1,0 +1,205 @@
+RUTAS:
+
+- GET - /comprar   --->   lista de todas las categorías
+- GET - /comprar/:idCategoria   --->   lista de los anuncios dentro de una categoría en concreto y con search buscar por palabras en el buscador(min -50 clase dia 16) 
+- GET - /comprar/:idCategoria/:idAnuncio   --->   muestra un anuncio
+
+- POST - /subir   --->   crea un anuncio
+- PUT -  /edit/:idAnuncio   --->   edita un anuncio
+- DELETE - /:idAnuncio   --->   borra un anuncio
+
+
+
+ // Faltan las rutas de usuario 
+ // Faltan las rutas de guardados, mensajes(chat), su
+
+
+
+         (((((((((((((((((((((    VERSIÓN MÓVIL    )))))))))))))))))))))
+
+        *****************************************************************
+        *****************************************************************
+        *****************************************************************
+        *****                                                       *****
+        *****   1. Al hacer clic en el botón "QUIERO COMPRAR":      *****
+        *****       (lista de las categorías)                       *****
+        *****                                                       *****
+        *****           - GET - /comprar                            *****
+        *****                                                       *****
+        *****       1.1. Al hacer clic en una de las categorías:    *****
+        *****           (lista de los anuncios de una categoría)    *****
+        *****                                                       *****
+        *****           - GET - /comprar/:idCategoria               *****
+        *****                   /comprar/consolas-y-videojuegos     *****
+        *****                   /comprar/informatica                *****
+        *****                   /comprar/telefonos                  *****   
+        *****                   /comprar/tv-y-video                 *****
+        *****                   /comprar/sonido                     *****
+        *****                                                       *****
+        *****       1.2. Al hacer clic en uno de los anuncios:      *****
+        *****           (ficha del anuncio)                         *****
+        *****                                                       *****
+        *****           - GET - /comprar/:idCategoria/:idAnuncio    *****
+        *****                                                       *****
+        *****************************************************************
+        *****************************************************************
+        *****************************************************************
+
+        _________________________________________________________________
+
+
+        *****************************************************************
+        *****************************************************************
+        *****************************************************************
+        *****                                                       *****
+        *****   2. Al hacer clic en el botón "QUIERO VENDER":       *****
+        *****                                                       *****
+        *****       2.1. Usuario Loggeado                           *****
+        *****  (se muestra un formulario para subir la publicación) *****
+        *****                                                       *****
+        *****           - POST - /subir                              *****
+        *****                                                       *****
+        *****       2.2. Usuario NO Loggeado:                       *****
+        *****  (pestaña con opción de iniciar sesión o registrarse) *****
+        *****                                                       *****
+        *****           - POST - /acceder                           *****
+        *****                                                       *****
+        *****************************************************************
+        *****************************************************************
+        *****************************************************************
+
+        _________________________________________________________________
+
+
+        *****************************************************************
+        *****************************************************************
+        *****************************************************************
+        *****                                                       *****
+        *****   3. BARRA INFERIOR:                                  *****
+        *****                                                       *****
+        *****       3.1. 'Inicio':                                  *****
+        *****           (se muestra un el index)                    *****
+        *****                                                       *****
+        *****       3.2. 'Guardados': 
+                        (pestaña con los mensajes guardados)                                *****
+        *****           
+                        - Usuario Loggeado: 
+                            - GET - /guardados                      *****
+        *****                                                       *****
+        *****           - Usuario NO Loggeado:
+                            - GET - /acceder
+                            
+                    3.3. 'Subir':
+                        (igual que "QUIERO VENDER")  
+                        
+                                                   *****
+        *****                                                       *****
+        *****                                                       *****
+        *****                                                       *****
+        *****       3.2. Al hacer clic en uno de los anuncios:      *****
+        *****           (ficha del anuncio)                         *****
+        *****                                                       *****
+        *****           - GET - /comprar/:idCategoria/:idAnuncio    *****
+        *****                                                       *****
+        *****************************************************************
+        *****************************************************************
+        *****************************************************************
+
+Al hacer clic en el botón "QUIERO VENDER":
+
+    Usuario loggeado:
+        (formulario sobre el producto que se quiere vender)
+
+    - POST - /subir
+
+    Usuario no logeado: 
+
+    - GET - /login  ---> (Iniciar Sesión)
+    - GET - /register  ---> (Registrarse)
+
+Al buscar algo en la barra de búsqueda:
+
+    - GET - /search
+
+Al 
+
+index...
+// Archivo para importar las rutas
+
+const listarCategorias = require("./categorias/listarCategorias");
+
+module.exports = { listarCategorias };
+// // Anuncios
+// const borrarAnuncio = require("./anuncios/borrarAnuncio");
+// const crearAnuncio = require("./anuncios/crearAnuncio");
+// const editarAnuncio = require("./anuncios/editarAnuncio");
+// const listaAnuncios = require("./anuncios/listarAnuncios");
+
+// // Categorías
+// const listaCategorias = require("./categorias/listaCategorias");
+
+// // Usuarios
+// const borrarUsuario = require("./usuarios/borrarUsuario");
+// const crearUsuario = require("./usuarios/crearUsuario");
+// const editarUsuario = require("./usuarios/editarUsuario");
+// const iniciarSesion = require("./usuarios/iniciarSesion");
+// const mostrarUsuario = require("./usuarios/mostrarUsuario");
+// const validarEmail = require("./usuarios/validarEmail");
+
+// module.exports = {
+//   borrarAnuncio,
+//   crearAnuncio,
+//   editarAnuncio,
+//   listaAnuncios,
+//   listaCategorias,
+//   borrarUsuario,
+//   crearUsuario,
+//   editarUsuario,
+//   iniciarSesion,
+//   mostrarUsuario,
+//   validarEmail,
+// };
+
+
+
+
+
+
+...listarCategorias
+// Listar las categorías  // GET - /comprar
+
+const listarCategorias = (req, res, next) => {
+  res.send({
+    message: "Lista de categorías",
+  });
+};
+
+module.exports = listarCategorias;
+
+/* const getDB = require("../../db");
+
+// Aqui definimos la ruta /categorias
+const listaCategorias = async (req, res, next) => {
+  let connection;
+  try {
+    connection = await getDB();
+
+    // Leo las entradas de la base de datos:
+    const [results] = await connection.query(`
+      SELECT * from categorias;
+      `);
+
+    // Devuelvo un json con los datos:
+    res.send({
+      status: "ok",
+      data: results,
+    });
+  } catch (error) {
+    next(error);
+  } finally {
+    if (connection) connection.release();
+  }
+};
+
+module.exports = listaCategorias;
+ */
